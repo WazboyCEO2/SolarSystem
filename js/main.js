@@ -1,7 +1,5 @@
- // This is where stuff in our game will happen:
   var scene = new THREE.Scene();
 
-  // This is what sees the stuff:
   var aspect_ratio = window.innerWidth / window.innerHeight;
   var above_cam = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 1e6);
   above_cam.position.z = 1000;
@@ -12,12 +10,10 @@
 
   var camera = above_cam;
 
-  // This will draw what the camera sees onto the screen:
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  // ******** START CODING ON THE NEXT LINE ********
   document.body.style.backgroundColor = 'black';
   
   function MEGO() {
@@ -229,8 +225,7 @@ var surface = new THREE.MeshPhongMaterial({ambient: 0x1a1a1a, color: 0x3013a3});
 
     earth_cam.rotation.set(Math.PI/2, -angle, 0);
     earth_cam.position.set(earth.position.x, earth.position.y, 22);
-
-    // Now, show what the camera sees on the screen:
+   
     renderer.render(scene, camera);
   }
 
@@ -254,10 +249,10 @@ var surface = new THREE.MeshPhongMaterial({ambient: 0x1a1a1a, color: 0x3013a3});
   document.addEventListener("keydown", function(event) {
     var code = event.keyCode;
 
-    if (code == 65) { // A
+    if (code == 65) { 
       camera = above_cam;
     }
-    if (code == 69) { // E
+    if (code == 69) {
       camera = earth_cam;
     }
   });
